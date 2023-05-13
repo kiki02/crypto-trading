@@ -1,11 +1,13 @@
 package com.aquariux.crypto.domain.wallet.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.aquariux.crypto.domain.wallet.Wallet;
 import com.aquariux.crypto.domain.wallet.repository.WalletRepository;
 import com.aquariux.crypto.domain.wallet.service.WalletService;
 
+@Service
 public class WalletServiceImpl implements WalletService {
 
     @Autowired
@@ -22,7 +24,7 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public Wallet saveWallet(Wallet wallet) {
+    public Wallet save(Wallet wallet) {
         return walletRepository.save(wallet);
     }
     

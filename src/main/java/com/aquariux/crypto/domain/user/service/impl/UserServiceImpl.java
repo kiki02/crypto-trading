@@ -1,11 +1,13 @@
 package com.aquariux.crypto.domain.user.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.aquariux.crypto.domain.user.User;
 import com.aquariux.crypto.domain.user.repository.UserRepository;
 import com.aquariux.crypto.domain.user.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

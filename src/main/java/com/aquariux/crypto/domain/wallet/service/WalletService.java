@@ -5,5 +5,5 @@ import com.aquariux.crypto.domain.wallet.Wallet;
 public interface WalletService {
     Wallet findByWalletId(String walletId);
     Wallet findByUserId(String userId);
-    Wallet saveWallet(Wallet wallet);
+    Wallet save(Wallet wallet);
 }

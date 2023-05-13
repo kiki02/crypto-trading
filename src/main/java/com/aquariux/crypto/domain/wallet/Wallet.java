@@ -25,24 +25,24 @@ public class Wallet extends AbstractEntity {
     @Column(name = "wallet_id", nullable = false)
     private String walletId;
 
-    @Column(nullable = false)
+    @Column(name = "user_id", nullable = false)
     private String userId;
 
     @Column
-    private BigDecimal USDT;
+    private BigDecimal usdt;
 
     @Column
-    private BigDecimal ETHUSDT;
+    private BigDecimal ethusdt;
 
     @Column
-    private BigDecimal BTCUSDT;
+    private BigDecimal btcusdt;
 
     public Wallet() {
         this.walletId = UUID.randomUUID().toString();
     }
 
-    @JsonIgnore
-    @OneToOne(optional=false)
-    @JoinColumn(name="user_id",referencedColumnName="user_id", insertable=false, updatable=false)
-    private User walletUser;
+    // @JsonIgnore
+    // @OneToOne(optional=false)
+    // @JoinColumn(name="user_id",referencedColumnName="user_id", insertable=false, updatable=false)
+    // private User walletUser;
 }
