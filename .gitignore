@@ -1,0 +1,6 @@
+/target/
+*.class
+bin/
+.log
+/logs/
+.vscode/
