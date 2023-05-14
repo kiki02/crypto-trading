@@ -1,6 +1,9 @@
 package com.aquariux.crypto.domain.aggregation.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.aquariux.crypto.domain.aggregation.PriceAggregation;
@@ -14,6 +17,11 @@ public class PriceAggregationServiceImpl implements PriceAggregationService {
     private PriceAggregationRepository priceAggregationRepository;
 
     @Override
+    public List<PriceAggregation> findAll() {
+        return priceAggregationRepository.findAll(Sort.by("tradingPair").ascending());
+    }
+
+    @Override
     public PriceAggregation findByTradingPair(String tradingPair) {
         return priceAggregationRepository.findByTradingPair(tradingPair);
     }
@@ -22,5 +30,5 @@ public class PriceAggregationServiceImpl implements PriceAggregationService {
     public PriceAggregation save(PriceAggregation priceAggregation) {
         return priceAggregationRepository.save(priceAggregation);
     }
-    
+
 }

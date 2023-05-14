@@ -21,13 +21,16 @@ public class PriceAggregation extends AbstractEntity {
     private String aggregationId;
 
     @Column(nullable = false)
-    private String sourcePrice;
+    private String tradingPair; // ETHUSDT, BTCUSDT
 
     @Column(nullable = false)
-    private String tradingPair; // ETHUSDT, BTCUSDT
+    private String bidSource;
 
     @Column
     private BigDecimal bidPrice;
+
+    @Column(nullable = false)
+    private String askSource;
 
     @Column
     private BigDecimal askPrice;

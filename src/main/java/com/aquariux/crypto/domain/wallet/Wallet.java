@@ -32,10 +32,10 @@ public class Wallet extends AbstractEntity {
     private BigDecimal usdt;
 
     @Column
-    private BigDecimal ethusdt;
+    private BigDecimal eth;
 
     @Column
-    private BigDecimal btcusdt;
+    private BigDecimal btc;
 
     public Wallet() {
         this.walletId = UUID.randomUUID().toString();

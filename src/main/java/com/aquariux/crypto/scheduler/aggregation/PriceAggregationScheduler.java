@@ -11,6 +11,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.aquariux.crypto.domain.aggregation.service.PriceAggregationService;
+import com.aquariux.crypto.infrastructure.enums.SupportedTradingPair;
 import com.aquariux.crypto.infrastructure.utils.Constants;
 import com.aquariux.crypto.scheduler.aggregation.worker.PriceAggregationWorker;
 
@@ -30,8 +31,8 @@ public class PriceAggregationScheduler {
             
             ExecutorService executor = Executors.newFixedThreadPool(Constants.MAX_AGGREDATION_THREAD);
 
-            for (String tradingPair : Constants.SupportedTradingPair) {
-                Runnable worker = new PriceAggregationWorker(tradingPair, priceAggregationService);
+            for (SupportedTradingPair tradingPair : SupportedTradingPair.values()) {
+                Runnable worker = new PriceAggregationWorker(tradingPair.toString(), priceAggregationService);
                 executor.execute(worker);
             }
 
