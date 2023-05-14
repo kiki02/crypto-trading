@@ -20,7 +20,7 @@ price.
 			"requestTime": number,	// the current time in milliseconds
 			"tradingType": number,	// 0 is SELL, and 1 is BUY
 			"tradingPair": "String",	// ETHUSDT or BTCUSDT
-			"amount": number	// Trading crypto amount
+			"amount": number	// The trading crypto amount
 		}
 	Example:
 	{

@@ -21,8 +21,11 @@ import com.aquariux.crypto.domain.trading.service.TradingService;
 import com.aquariux.crypto.infrastructure.enums.TradingResultCode;
 import com.aquariux.crypto.infrastructure.utils.Constants;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/api/trading")
+@Slf4j
 public class TradingAPIController {
 
     @Autowired
@@ -42,7 +45,7 @@ public class TradingAPIController {
                 return new ResponseEntity<>(tradingResponse, HttpStatus.BAD_REQUEST);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Bad request.", e);
             TradingResponse tradingResponse = new TradingResponse();
             tradingResponse.setRequestId(tradingRequest.getRequestId());
             tradingResponse.setRequestTime(tradingRequest.getRequestTime());
