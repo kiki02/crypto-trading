@@ -27,7 +27,7 @@ public class PriceAggregationScheduler {
     @Scheduled(initialDelay = 10 * 1000, fixedDelay = 10 * 1000)
 	public void spyThread() {
         try {
-            log.info("PriceAggregationScheduler runs {}", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            // log.info("PriceAggregationScheduler runs {}", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             
             ExecutorService executor = Executors.newFixedThreadPool(Constants.MAX_AGGREDATION_THREAD);
 

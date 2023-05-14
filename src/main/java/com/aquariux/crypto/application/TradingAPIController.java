@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,6 +58,12 @@ public class TradingAPIController {
         // we assumed that the user has already authenticated and authorised to access the APIs, so we will have the user_id to do this
         List<TradingHistory> histories = tradingHistoryService.findByCreateUser(Constants.DEFAULT_USER_ID);
         return new ResponseEntity<>(histories, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/detail/{tradingId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getTradingHistoryDetail(@PathVariable("tradingId") String tradingId) {
+        TradingHistory history = tradingHistoryService.findByTradingId(tradingId);
+        return new ResponseEntity<>(history, HttpStatus.OK);
     }
 
 }
